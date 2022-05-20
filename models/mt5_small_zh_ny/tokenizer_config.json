@@ -1,0 +1,1 @@
+{"eos_token": "</s>", "unk_token": "<unk>", "pad_token": "<pad>", "extra_ids": 0, "additional_special_tokens": null, "sp_model_kwargs": {}, "special_tokens_map_file": "./model/mt5_small_zh_tw/special_tokens_map.json", "name_or_path": "./model/mt5_small_zh_tw", "tokenizer_class": "T5Tokenizer"}
