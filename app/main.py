@@ -125,18 +125,18 @@ async def result(input: List[Input]):
     for data in input:
         temp = {"id": data.id}
         content = data.content
+        temp["content"] = content
         num_return_sequences = data.num_return_sequences
+        temp["num_return_sequences"] = num_return_sequences
         do_sample = data.do_sample
+        temp["do_sample"] = do_sample
         document = pred_title_result(
             content, do_sample=do_sample, num_return_sequences=num_return_sequences)
-        temp["content"] = document
+        temp["result"] = document
         result.append(temp)
 
     response = {
-        "content": content,
-        "sample": do_sample,
-        "result": result,
-        "num_return_sequences": num_return_sequences,
+        "result": result
     }
 
     return response  # {"result": result}

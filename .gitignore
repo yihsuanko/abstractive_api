@@ -3,3 +3,4 @@ title.py
 venv
 .env
 __pycache__
+models
