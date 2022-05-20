@@ -1,9 +1,12 @@
 # abstractive_api
 
 - [程式建置流程](#程式建置流程)
+- [檔案說明](#檔案說明)
 - [程式說明](#程式說明)
    - [FASTAPI](#FASTAPI)
         - [title](#title)
+        - [summary](#summary)
+        - [postapi](#postapi)
    - [postman](#postman)
    - [docker](#docker)
 
@@ -14,7 +17,7 @@
 - 使用transformers pipelines 來進行模型預測
 - 使用docker製作映像檔
 
-## File Outline and Explanation
+## 檔案說明
 
 ### Folder 
 
@@ -90,7 +93,7 @@
         - sample: `True`:抽樣 `False`:選機率最大
         - num_return_sequences: 產生的句子數量（因為num_beams=10，如果想要產出超過10個句子，需要調整num_beams）
 
-#### post api
+#### postapi
 - URL: `/api/sum`
 - Method: `POST`
 - Headers:
@@ -207,5 +210,14 @@ run fast api 之後在網址上
     ```
     4. Docker build<br>
     `docker build -t name:tag .`<br>
+    `docker build -t summary_api .`<br>
     5. Docker run<br>
     `docker run -d --name mycontainer -p 80:80 myimage`<br>
+    由於模型不再Docker內，因此需要連接本地含有模型的資料夾，並使用環境變數
+    ```
+        docker run -d --name summary_api \
+        -v /Users/mac/Desktop/eland-intern/title_api/models:/code/models \
+        --env TITLE_MODEL=mt5_small_zh_short \
+        --env SUMMARY_MODEL=mt5_small_zh_ny \
+        -p 200:80 abstractive
+    ```
