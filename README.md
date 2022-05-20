@@ -75,7 +75,7 @@
 
 #### title
 - URL: `/`
-- method: `get\post`
+- method: `get/post`
     - Headers:
         - `Content-Type`: `text/html; charset=utf-8`
     - HTML `<form>` 使用post，使網址不會因為input改變
@@ -85,7 +85,7 @@
 
 #### summary
 - URL: `/summary`
-- method: `get\post`
+- method: `get/post`
     - Headers:
         - `Content-Type`: `text/html; charset=utf-8`
     - HTML `<form>` 使用post，使網址不會因為input改變
